@@ -33,6 +33,7 @@ function Toc() {
       <h2>Índice</h2>
       <p className="soft">Elige un capítulo y el libro se abre por esa página.</p>
       <ul className="toc">
+        {row("prologue", "Prólogo")}
         {projects.map((p) => row(`${p.slug}-0`, `Capítulo ${p.num}. ${p.title}`, p.tag, p.pro))}
         {row("colofon", "Colofón y contacto")}
       </ul>
@@ -40,6 +41,24 @@ function Toc() {
   );
 }
 
+// Segunda página del índice: cómo está montado el libro
+function Guide() {
+  return (
+    <section>
+      <h3>Cómo se lee este libro</h3>
+      <p>El prólogo es la antesala; a partir de aquí el libro se lee como un recetario.</p>
+      <ul className="ticks">
+        <li>Página izquierda: los ingredientes y lo importante.</li>
+        <li>Página derecha: el transcurso, paso a paso.</li>
+      </ul>
+      <p className="soft">Pasa página con las flechas del teclado y vuelve al índice con el marcapáginas rosa o el botón de abajo.</p>
+      <p className="mono prompt"><span>$</span> chapters --count</p>
+      <p className="mono soft">3 capítulos: un trabajo final de máster y dos proyectos profesionales.</p>
+    </section>
+  );
+}
+
+// Doble página del prólogo. Izquierda: la presentación. Derecha: las aficiones.
 function Prologue() {
   return (
     <section>
@@ -47,13 +66,23 @@ function Prologue() {
       <p>Soy Yaiza Muñoz, Software Engineer con más de ocho años de experiencia en tech. Me muevo entre el código y el diseño para crear productos digitales que mejoran el día a día de las personas.</p>
       <p>Desarrollo con design systems para asegurar coherencia visual y que cada interacción sea clara y funcional. Colaboro estrechamente con desarrolladores, uniendo diseño y tecnología para que el producto final respete cada detalle pensado para la experiencia del usuario.</p>
       <p>Fuera de la pantalla leo, cocino para relajarme, hago punto, disfruto de la naturaleza y exploro nuevas formas de diseño. Para mí, el buen UX no solo organiza interfaces: hace la vida más sencilla, cercana y significativa para quien lo usa.</p>
-      <p>Este libro reúne tres capítulos: un trabajo final de máster y dos proyectos profesionales. Cada uno se lee como una receta: a la izquierda, los ingredientes y lo importante; a la derecha, el transcurso paso a paso.</p>
+    </section>
+  );
+}
+
+function Hobbies() {
+  const { goTo, spreads } = useContext(BookCtx);
+  const idx = spreads.findIndex((s) => s.id === "toc");
+  return (
+    <section>
       <p className="mono prompt"><span>$</span> aficiones --listar</p>
       <ul className="hobbies">
         <li><Doodle name="book" /><span><b>Leer</b><em>[tu lectura actual]</em></span></li>
         <li><Doodle name="pot" /><span><b>Cocinar</b><em>[tu plato de cabecera]</em></span></li>
         <li><Doodle name="yarn" /><span><b>Hacer punto</b><em>[lo que llevas en las agujas]</em></span></li>
       </ul>
+      <Divider />
+      <button className="btn" onClick={() => goTo(idx)}>Ir al índice</button>
     </section>
   );
 }
@@ -88,7 +117,9 @@ function End() {
 export function Block({ b }) {
   switch (b.type) {
     case "prologue": return <Prologue />;
+    case "hobbies": return <Hobbies />;
     case "toc": return <Toc />;
+    case "guide": return <Guide />;
     case "contact": return <Contact />;
     case "end": return <End />;
     case "chapterHead": {

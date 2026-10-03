@@ -7,10 +7,11 @@ import { useMedia } from "./hooks.js";
 
 const DUR = 800; // ms, igual que la animación CSS
 
-// Todo el libro es una lista de dobles páginas: prólogo e índice, capítulos y colofón
+// Todo el libro es una lista de dobles páginas: prólogo, índice, capítulos y colofón
 function buildSpreads() {
   const spreads = [
-    { id: "intro", title: "Prólogo e índice", left: [{ type: "prologue" }], right: [{ type: "toc" }] },
+    { id: "prologue", title: "Prólogo", left: [{ type: "prologue" }], right: [{ type: "hobbies" }] },
+    { id: "toc", title: "Índice", left: [{ type: "toc" }], right: [{ type: "guide" }] },
   ];
   projects.forEach((p) => {
     p.spreads.forEach((s, k) => {
@@ -57,6 +58,7 @@ function CoverPage({ onOpen }) {
 
 export default function Book() {
   const spreads = useMemo(buildSpreads, []);
+  const indexIdx = useMemo(() => spreads.findIndex((s) => s.id === "toc"), [spreads]);
   const wide = useMedia("(min-width: 900px)");
   const reduce = useMedia("(prefers-reduced-motion: reduce)");
   const canFlip = wide && !reduce;
@@ -107,7 +109,7 @@ export default function Book() {
   return (
     <BookCtx.Provider value={{ goTo: go, spreads }}>
       <div className="book3d">
-        {target > 0 && <button className="bookmark" aria-label="Volver al índice" title="Volver al índice" onClick={() => go(0)} />}
+        {target > 0 && <button className="bookmark" aria-label="Volver al índice" title="Volver al índice" onClick={() => go(indexIdx)} />}
 
         <div className={`pages ${canFlip ? "flipmode" : "fade"} ${closed ? "closed" : ""}`} key={canFlip ? "flip" : i}>
           {pageAt(leftIdx, "left")}
@@ -127,7 +129,7 @@ export default function Book() {
 
         <div className="controls">
           <button onClick={() => go(i - 1)} disabled={i === -1 || busy}>{i === 0 ? "Cerrar el libro" : "Página anterior"}</button>
-          <button className={i > 0 ? "" : "hidden"} onClick={() => go(0)} disabled={busy}>Volver al índice</button>
+          <button className={i > indexIdx ? "" : "hidden"} onClick={() => go(indexIdx)} disabled={busy}>Volver al índice</button>
           <button onClick={() => go(i + 1)} disabled={i === spreads.length - 1 || busy}>{i === -1 ? "Abrir el libro" : "Página siguiente"}</button>
         </div>
         <p className="hint mono">{i < 0 ? "Abre el libro con el botón o con la flecha derecha." : `${spreads[i].title}. Pasa página con las flechas del teclado.`}</p>
