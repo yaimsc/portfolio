@@ -5,7 +5,7 @@ Se abre como un libro: portada cerrada con tu foto y quién eres; al abrirlo, pr
 ## Abrirlo en WebStorm
 1. File > Open y elige esta carpeta.
 2. Terminal: `npm install` y después `npm run dev` (http://localhost:5173).
-3. Para publicar: `npm run build` (genera `dist/`).
+3. Para publicar: `git push` a `main`. El workflow `.github/workflows/deploy.yml` compila y sube el sitio a GitHub Pages automáticamente.
 
 ## Cómo se navega
 - Portada: botón "Abrir el libro" o flecha derecha.
