@@ -1,0 +1,356 @@
+{
+  "brand": "Yaiza Muñoz",
+  "portfolio": "portfolio",
+  "edition": "Edition 2026",
+  "photoAlt": "Portrait of {{name}}",
+  "photoMissing": "Your photo at public/assets/yaiza.jpg",
+  "epigraph": "I faithfully translate digital solutions into the final product.",
+  "openBook": "Open the book",
+  "index": {
+    "label": "Contents",
+    "title": "Contents",
+    "desc": "Choose a chapter and the book will open to that page.",
+    "prologue": "Prologue",
+    "colophon": "Colophon & contact"
+  },
+  "backToIndex": "Back to contents",
+  "close": "Close",
+  "previous": "Previous",
+  "next": "Next",
+  "open": "Open",
+  "hintOpen": "Open the book with the button or the right arrow key.",
+  "hintPage": "{{title}}. Turn pages with the arrow keys.",
+  "page": "p. {{n}}",
+  "chapter": "Chapter {{n}}",
+  "chapterFull": "Chapter {{n}}. {{title}}",
+  "chapterSpread": "Chapter {{n}}, {{title}}",
+  "guide": {
+    "title": "How to read this book",
+    "p1": "The prologue is the prelude; from here on, this is a recipe book.",
+    "l1": "Left page: ingredients and key points.",
+    "l2": "Right page: the process, step by step.",
+    "p2": "Turn pages with the arrow keys and go back to the index with the pink bookmark or the bottom button.",
+    "cmd": "chapters --count",
+    "p3": "3 chapters: a master's final project and two professional projects."
+  },
+  "prologue": {
+    "title": "Prologue",
+    "p1": "I'm Yaiza Muñoz, a Software Engineer with over eight years of experience in tech. I bridge code and design to create digital products that improve people's everyday lives.",
+    "p2": "I work with design systems to ensure visual consistency and make every interaction clear and functional. I collaborate closely with developers, uniting design and technology so the final product respects every detail of the user experience.",
+    "p3": "Outside the screen, I read, cook to unwind, knit, enjoy nature, and explore new forms of design. For me, good UX doesn't just organize interfaces: it makes life simpler, more human, and more meaningful for the people who use them."
+  },
+  "hobbies": {
+    "cmd": "hobbies --list",
+    "read": "Reading",
+    "readNow": "[your current read]",
+    "cook": "Cooking",
+    "cookNow": "[your go-to dish]",
+    "knit": "Knitting",
+    "knitNow": "[what's on your needles]",
+    "goIndex": "Go to contents"
+  },
+  "colophon": {
+    "title": "Contact",
+    "p1": "If you think my profile could be a good fit, get in touch to build digital products and improve user experiences.",
+    "p2": "Set in Libre Baskerville, Inter and JetBrains Mono. Built with React and Vite."
+  },
+  "end": {
+    "title": "The End",
+    "p1": "Thank you for reading.",
+    "closeBook": "Close the book"
+  },
+  "blur": {
+    "masked": "Blurred"
+  },
+  "footer": "© 2026 Yaiza Muñoz",
+  "person": {
+    "name": "Yaiza Muñoz",
+    "role": "Software Engineer with a design focus, 8+ years in tech",
+    "email": "yaimsc@gmail.com"
+  },
+  "projects": [
+    {
+      "slug": "aura",
+      "num": 1,
+      "page": "07",
+      "title": "AURA",
+      "longTitle": "AURA: exercise and nutrition that adapt to your hormonal cycle",
+      "epigraph": "Your body changes. So does your energy.",
+      "tag": "Master's final project",
+      "pro": false,
+      "cover": "/assets/aura-app.jpg",
+      "meta": [
+        ["Time", "Nov 2025 to Mar 2026"],
+        ["Scope", "Web landing and mobile app"]
+      ],
+      "spreads": [
+        {
+          "title": "The recipe",
+          "left": [
+            {
+              "type": "list",
+              "title": "Ingredients",
+              "items": [
+                "Figma",
+                "Own design system",
+                "Heroicons and Streamline",
+                "unDraw illustrations",
+                "Josefin Sans and Nunito"
+              ]
+            },
+            {
+              "type": "points",
+              "title": "Key points",
+              "items": [
+                [
+                  "Problem",
+                  "Separate apps for cycle, nutrition and exercise: the user has to interpret isolated data."
+                ],
+                [
+                  "Solution",
+                  "An ecosystem where AI adapts workouts, meals and routines to the phase of the cycle."
+                ],
+                [
+                  "References",
+                  "Musa, Hormona, Dotsdays, YogaJoy and BitePal. None of them spans all three areas."
+                ]
+              ]
+            }
+          ],
+          "right": [
+            {
+              "type": "steps",
+              "title": "Process",
+              "steps": [
+                {
+                  "title": "Project definition",
+                  "meta": "23 Nov",
+                  "text": "Defining the problem, goals and scope."
+                },
+                {
+                  "title": "Branding and user persona",
+                  "meta": "18 Dec",
+                  "text": "A warm, calm identity with fine linework and soft-toned photography."
+                },
+                {
+                  "title": "Architecture and design system",
+                  "meta": "26 Jan",
+                  "text": "Structure of the website and the app, plus a component library."
+                },
+                {
+                  "title": "Wireframes and first prototype",
+                  "meta": "15 Feb",
+                  "text": "First screens and flows to validate the idea."
+                },
+                {
+                  "title": "High fidelity and final prototype",
+                  "meta": "23 Mar",
+                  "text": "Final design of the landing page and the app, with a clickable prototype."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "The result",
+          "left": [
+            {
+              "type": "figure",
+              "src": "/assets/aura-app.jpg",
+              "alt": "Final screens of the AURA app",
+              "caption": "Fig. 1. Home, recipe and training."
+            },
+            {
+              "type": "swatches",
+              "title": "Brand palette",
+              "items": [
+                ["#d84c97", "Primary"],
+                ["#30bba6", "Secondary"],
+                ["#feead1", "Accent"]
+              ]
+            }
+          ],
+          "right": [
+            {
+              "type": "figure",
+              "src": "/assets/aura-web.jpg",
+              "alt": "Final design of the AURA web landing",
+              "caption": "Fig. 2. Web landing."
+            },
+            {
+              "type": "figure",
+              "src": "/assets/aura-prototipo.jpg",
+              "alt": "AURA prototype on web and mobile",
+              "caption": "Fig. 3. Prototype on web and mobile."
+            },
+            {
+              "type": "notice",
+              "text": "Add here the link to the full report or the Figma prototype."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rediseno",
+      "num": 2,
+      "page": "19",
+      "title": "Redesign of an internal tool",
+      "longTitle": "Redesign of an internal tool",
+      "epigraph": "Confidential project. The images are blurred and I can go into detail in a conversation.",
+      "tag": "Professional project",
+      "pro": true,
+      "cover": null,
+      "meta": [
+        ["Company", "[Confidential]"],
+        ["Time", "[Year]"]
+      ],
+      "spreads": [
+        {
+          "title": "The recipe",
+          "left": [
+            {
+              "type": "list",
+              "title": "Ingredients",
+              "items": ["[Tools you used]"]
+            },
+            {
+              "type": "points",
+              "title": "Key points",
+              "items": [
+                ["Challenge", "[What problem had to be solved, no sensitive data]"],
+                ["Decision", "[What you decided and why]"],
+                ["Outcome", "[What changed, no confidential figures]"]
+              ]
+            }
+          ],
+          "right": [
+            {
+              "type": "steps",
+              "title": "Process",
+              "steps": [
+                {
+                  "title": "[First step]",
+                  "meta": "[Date]",
+                  "text": "Example: research with internal users."
+                },
+                {
+                  "title": "[Second step]",
+                  "meta": "[Date]",
+                  "text": "Example: design system and components in code."
+                },
+                {
+                  "title": "[Third step]",
+                  "meta": "[Date]",
+                  "text": "Example: collaboration with developers and validation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "A glimpse",
+          "left": [
+            {
+              "type": "blur",
+              "caption": "Fig. 1. Image blurred for confidentiality."
+            }
+          ],
+          "right": [
+            {
+              "type": "blur",
+              "caption": "Fig. 2. Image blurred for confidentiality."
+            },
+            {
+              "type": "example",
+              "text": "To show a blurred screenshot, use a \"blur\" block."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "crm",
+      "num": 3,
+      "page": "31",
+      "title": "From tablet to pocket",
+      "longTitle": "From tablet to pocket: redesigning an app for sales reps",
+      "epigraph": "Professional project from before my master's degree. The texts are examples and will be replaced with the real ones.",
+      "tag": "Professional project",
+      "pro": true,
+      "cover": null,
+      "meta": [
+        ["Time", "2017–2018"],
+        ["Role", "[Your role on the project]"]
+      ],
+      "spreads": [
+        {
+          "title": "The recipe",
+          "left": [
+            {
+              "type": "list",
+              "title": "Ingredients",
+              "items": ["[Tools you used]"]
+            },
+            {
+              "type": "points",
+              "title": "Key points",
+              "items": [
+                [
+                  "Context",
+                  "Example: sales reps used the CRM on a tablet and needed it on their phones too."
+                ],
+                [
+                  "Challenge",
+                  "Example: fitting the information from a big screen into a small one."
+                ],
+                [
+                  "Outcome",
+                  "[What changed for users. Metrics only if they are confirmed]"
+                ]
+              ]
+            }
+          ],
+          "right": [
+            {
+              "type": "steps",
+              "title": "Process",
+              "steps": [
+                {
+                  "title": "Listening to users",
+                  "meta": "[Date]",
+                  "text": "Example: understanding what they did on each visit."
+                },
+                {
+                  "title": "Unifying the visual identity",
+                  "meta": "[Date]",
+                  "text": "Example: the same components on tablet and mobile."
+                },
+                {
+                  "title": "Adapting and shipping an MVP",
+                  "meta": "[Date]",
+                  "text": "Example: prioritising the essentials and iterating on their feedback."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Final designs",
+          "left": [
+            {
+              "type": "example",
+              "text": "Here goes the first screenshot of the app. Save it in public/assets and add a \"figure\" block to the chapter in this JSON."
+            }
+          ],
+          "right": [
+            {
+              "type": "example",
+              "text": "Here goes the second screenshot, with its caption."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

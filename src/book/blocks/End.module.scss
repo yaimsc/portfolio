@@ -1,0 +1,8 @@
+/* Cierre del libro */
+.end {
+  margin: auto 0;
+  display: grid; justify-items: center; text-align: center; gap: 8px;
+  color: var(--maroon);
+
+  p { margin: 0 0 8px; }
+}

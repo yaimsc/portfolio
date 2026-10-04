@@ -1,0 +1,29 @@
+/* La hoja que gira al pasar de página */
+
+.leaf {
+  position: absolute; top: 0; bottom: 0; width: 50%;
+  transform-style: preserve-3d;
+  animation-duration: .6s;
+  animation-timing-function: cubic-bezier(.45, .05, .25, 1);
+  animation-fill-mode: both;
+  z-index: 5;
+
+  &.next { right: 0; transform-origin: left center; animation-name: turnNext; }
+  &.prev { left: 0; transform-origin: right center; animation-name: turnPrev; }
+}
+
+.face {
+  position: absolute; inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  background: var(--paper);
+
+  /* Cada cara lleva una página y debe llenar el alto; su sombra la recorta overflow */
+  > * { height: 100%; }
+
+  &.back { transform: rotateY(180deg); }
+}
+
+@keyframes turnNext { from { transform: rotateY(0); } to { transform: rotateY(-180deg); } }
+@keyframes turnPrev { from { transform: rotateY(0); } to { transform: rotateY(180deg); } }

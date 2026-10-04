@@ -1,0 +1,46 @@
+/* Capa global: variables, reset, tipografía base y las pocas utilidades que comparten varios
+   ficheros. Todo lo demás vive en un *.module.scss junto al componente que lo usa. */
+
+/* Libro retro, versión suave: poco contraste, colores planos, sin degradados */
+:root {
+  --paper: #fbf7f1; --desk: #f2eadf; --ink: #3b2b2b; --soft: #7a6a68; --line: #dccdbe;
+  --maroon: #7b3f3f; --rose: #e2a1a8; --rose-soft: #f3dcda; --butter: #f7e8c3; --sky: #cfe6ea; --sky-deep: #4f8a9a;
+  --serif: "Libre Baskerville", Baskerville, Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --max: 1120px; --r: 16px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { margin: 0; background: var(--desk); color: var(--ink); font: 1rem/1.7 var(--sans); }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--sky-deep); outline-offset: 3px; }
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.25; margin: 0 0 .6em; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.3rem); }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.05rem; color: var(--maroon); }
+p { margin: 0 0 1.1em; }
+
+/* Utilidades: las usan varios componentes a la vez, por eso siguen siendo globales */
+.mono { font-family: var(--mono); font-size: .78rem; }
+.soft { color: var(--soft); }
+.btn { background: var(--paper); border: 1.5px solid var(--maroon); color: var(--maroon); border-radius: 999px; padding: 8px 18px; font: .8rem var(--mono); text-decoration: none; transition: background .15s, color .15s; }
+.btn:hover { background: var(--maroon); color: var(--paper); }
+
+/* ===== Móvil: barra de página fija abajo =====
+   El libro en móvil es largo (una doble página apilada) y sin giro 3D. Sin esto hay que
+   llegar al final del bloque para pasar página, y al hacerlo el cambio quedaba fuera de
+   la vista: en móvil no se veía ningún efecto. useBook.js vuelve arriba al cambiar de página.
+   La barra en sí la pinta BookView.module.scss; aquí solo el hueco que deja en el body. */
+@media (max-width: 899px) {
+  body { padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}

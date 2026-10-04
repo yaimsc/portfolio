@@ -1,0 +1,107 @@
+/* El libro abierto: contenedor, doble página, fantasma, barra de paso y la pista de teclado */
+
+.book3d { perspective: none; position: relative; }
+
+/* Marcapáginas rosa de "volver al índice" */
+.bookmark {
+  position: absolute; 
+  top: -10px; 
+  right: 36px; 
+  width: 30px; 
+  height: 72px; 
+  padding: 0; 
+  border: 0;
+  background: var(--rose); 
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%); 
+  z-index: 10;
+}
+
+.bookmark:hover { 
+  background: var(--maroon); 
+}
+
+.pages { 
+  position: relative; 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  perspective: 2600px; 
+}
+
+/* Con giro 3D la doble página se desplaza; sin él (móvil o reduced-motion) se funde */
+.flipmode { 
+  transition: transform .8s cubic-bezier(.45, .05, .25, 1); 
+}
+.flipmode.closed { 
+  transform: translateX(-24%); 
+}
+.fade { animation: fadeIn .2s ease both; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Página de relleno mientras gira: ocupa sitio pero no se ve */
+.ghost { visibility: hidden; }
+.fade .ghost { display: none; }
+
+.controls { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  gap: 12px; 
+  margin-top: 22px; 
+}
+.controls button { 
+  background: var(--paper); 
+  border: 1.5px solid var(--maroon); 
+  color: var(--maroon); 
+  border-radius: 999px; 
+  padding: 8px 18px; font: .8rem var(--mono); 
+  transition: background .15s, color .15s; 
+}
+.controls button:not(:disabled):hover { 
+  background: var(--maroon); 
+  color: var(--paper); 
+}
+.controls button:disabled { 
+  opacity: .4; cursor: default; 
+}
+.controls .hidden { 
+  visibility: hidden; 
+}
+
+.hint { 
+  text-align: center; 
+  color: var(--soft); 
+  margin-top: 10px; 
+}
+
+@media (max-width: 899px) {
+  .pages { grid-template-columns: 1fr; }
+
+  /* La doble página se apila y es larga: sin barra fija hay que llegar al final del bloque
+     para pasar página. Los botones comparten fila con el de índice. */
+  .controls {
+    position: fixed; 
+    left: 50%; 
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px)); 
+    transform: translateX(-50%);
+    width: min(calc(100% - 24px), 460px); 
+    z-index: 36; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: stretch; 
+    gap: 8px; margin: 0; 
+    padding: 8px; 
+    background: var(--paper);
+    border: 1.5px solid var(--maroon); 
+    border-radius: 999px; 
+    box-shadow: 4px 4px 0 #e3cfc7;
+  }
+
+  .controls button { 
+    width: 100%; 
+    padding: 11px 4px; 
+    font-size: .7rem; 
+    line-height: 1.25; 
+    text-align: center; 
+  }
+}

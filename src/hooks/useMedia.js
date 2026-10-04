@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
 export function useMedia(query) {
-  const [matches, setMatches] = useState(() => window.matchMedia(query).matches);
+  const get = () => (typeof window === "undefined" ? false : window.matchMedia(query).matches);
+  const [matches, setMatches] = useState(get);
   useEffect(() => {
     const m = window.matchMedia(query);
     const onChange = () => setMatches(m.matches);

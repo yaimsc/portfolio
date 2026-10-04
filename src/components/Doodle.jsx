@@ -1,4 +1,6 @@
 // Dibujos de trazo a mano alzada: destello del moodboard y las tres aficiones
+import s from "./Doodle.module.scss";
+
 const PATHS = {
   sparkle: "M24 4c1.5 11 7 17 20 20-13 3-18.5 9-20 20-1.5-11-7-17-20-20 13-3 18.5-9 20-20z",
   book: "M24 12c-5-3-12-3-18-1v26c6-2 13-2 18 1 5-3 12-3 18-1V11c-6-2-13-2-18 1zM24 12v26",
@@ -8,7 +10,7 @@ const PATHS = {
 
 export default function Doodle({ name, size = 40, className = "" }) {
   return (
-    <svg className={`doodle ${className}`} width={size} height={size} viewBox="0 0 48 48" fill="none"
+    <svg className={`${s.doodle} ${className}`} width={size} height={size} viewBox="0 0 48 48" fill="none"
       stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d={PATHS[name]} />
     </svg>

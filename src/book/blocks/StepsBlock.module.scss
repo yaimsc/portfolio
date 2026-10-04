@@ -1,0 +1,13 @@
+/* Transcurso: pasos numerados, separados por filetes */
+
+.steps { list-style: none; padding: 0; margin: 0; }
+
+.step {
+  display: flex;
+  gap: 14px;
+
+  .n { font: 600 .8rem var(--mono); color: var(--sky-deep); padding-top: 3px; }
+  strong { font-family: var(--serif); font-weight: 400; margin-right: 10px; }
+  .when { font: .72rem var(--mono); background: var(--butter); border-radius: 999px; padding: 1px 9px; }
+  p { margin: 4px 0 0; font-size: .92rem; color: var(--soft); line-height: 1.55; }
+}

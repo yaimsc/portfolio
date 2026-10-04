@@ -1,0 +1,16 @@
+.stage { padding: 48px 0 24px; }
+.wrap { width: min(var(--max), 100% - 40px); margin-inline: auto; }
+
+/* Barra superior */
+.topbar {
+  position: sticky; 
+  top: 0; 
+  z-index: 20; 
+  background: var(--paper); 
+  border-bottom: 1.5px solid var(--line);
+
+  .wrap { display: flex; align-items: center; gap: 24px; min-height: 48px; padding-right: 0; flex-wrap: wrap; }
+  .brand { font-family: var(--serif); text-decoration: none; margin-right: auto; }
+}
+
+.footer { padding: 4px 0 40px; font: .75rem var(--mono); color: var(--soft); }

@@ -1,0 +1,59 @@
+/* Selector de idioma: una píldora más del libro que abre un menú con los dos idiomas.
+   El menú es propio (no un <select>) porque el de un select nativo lo dibuja el sistema
+   y no admite estilos. */
+
+.langToggle { position: relative; margin-left: auto; }
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 1.5px solid var(--maroon);
+  border-radius: 999px;
+  background-color: var(--paper);
+  color: var(--maroon);
+  /* min-width para que la píldora no baile al pasar de "Español" a "English" */
+  min-width: 112px;
+  padding: 4px 12px;
+  font: .72rem var(--mono);
+  transition: background-color .15s;
+}
+
+.trigger:hover { background-color: var(--rose-soft); }
+
+.chevron { flex: none; }
+
+.menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 25;
+  min-width: 100%;
+  padding: 4px;
+  background: var(--paper);
+  border: 1.5px solid var(--maroon);
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 #e3cfc7;
+}
+
+.opt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  background: none;
+  border: 0;
+  border-radius: 8px;
+  padding: 5px 10px;
+  font: .72rem var(--mono);
+  color: var(--ink);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.opt:hover { background: var(--butter); }
+
+/* El idioma en el que se está leyendo */
+.current { color: var(--maroon); }

@@ -1,0 +1,9 @@
+/* Puntos importantes: término en monoespaciada y su explicación debajo */
+.points {
+  margin: 0;
+  display: grid;
+  gap: 14px;
+
+  dt { font: 600 .72rem var(--mono); color: var(--maroon); }
+  dd { margin: 0; font-size: .94rem; line-height: 1.6; }
+}

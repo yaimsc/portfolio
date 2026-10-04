@@ -1,0 +1,23 @@
+/* Cabecera de capítulo: rótulo, título, epígrafe y las etiquetas de tiempo y alcance */
+
+.label { color: var(--maroon); margin: 0; }
+
+.epigraph { font: italic 1rem/1.6 var(--serif); color: var(--soft); max-width: 62ch; }
+
+.chips { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 0; }
+
+/* Etiqueta del proyecto: vacía si no es profesional */
+.tag {
+  font: .68rem var(--mono);
+  border: 1.5px solid var(--maroon);
+  color: var(--maroon);
+  padding: 1px 9px;
+  border-radius: 999px;
+  width: max-content;
+}
+
+.tag.pro { background: var(--butter); }
+
+/* Dato clave: tiempo, alcance, empresa... */
+.chip { font: .78rem var(--mono); background: var(--butter); border-radius: 999px; padding: 3px 12px; }
+.chip b { color: var(--maroon); font-weight: 600; }

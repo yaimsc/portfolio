@@ -1,0 +1,7 @@
+/* Guía de lectura */
+
+.ticks { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.ticks li::before { content: "·"; color: var(--maroon); font-weight: 700; margin-right: 10px; }
+
+.prompt { margin: 1.4em 0 .6em; color: var(--sky-deep); }
+.prompt span { color: var(--maroon); }

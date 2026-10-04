@@ -1,20 +1,26 @@
-import Book from "./Book.jsx";
-import Doodle from "./Doodle.jsx";
+import Book from "./book/Book.jsx";
+import Doodle from "./components/Doodle.jsx";
+import LanguageToggle from "./components/LanguageToggle/LanguageToggle.jsx";
+import { useTranslation } from "react-i18next";
+import s from "./App.module.scss";
 
 export default function App() {
+  const { t } = useTranslation();
   return (
     <>
-      <header className="topbar">
-        <div className="wrap">
-          <span className="brand">Yaiza Muñoz</span>
-          <span className="mono soft">portfolio</span>
+      <header className={s.topbar}>
+        <div className={s.wrap}>
+          <span className={s.brand}>{t("brand")}</span>
+          <LanguageToggle />
         </div>
       </header>
-      <main className="wrap stage">
+      <main className={`${s.wrap} ${s.stage}`}>
         <Book />
       </main>
-      <footer>
-        <div className="wrap"><Doodle name="sparkle" size={14} /> © 2026 Yaiza Muñoz</div>
+      <footer className={s.footer}>
+        <div className={s.wrap}>
+          <Doodle name="sparkle" size={14} /> {t("footer")}
+        </div>
       </footer>
     </>
   );

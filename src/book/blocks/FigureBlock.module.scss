@@ -1,0 +1,7 @@
+/* Figura con pie */
+.fig {
+  margin: 0;
+
+  img { border: 1.5px solid var(--line); border-radius: 12px; width: 100%; }
+  figcaption { font: .72rem var(--mono); color: var(--soft); margin-top: 6px; }
+}
