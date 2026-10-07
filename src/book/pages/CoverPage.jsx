@@ -29,7 +29,7 @@ export function CoverPage({ onOpen }) {
         <p className={`mono ${s.meta}`}>{person.role}</p>
         <p className={s.epigraph}>{t("epigraph")}</p>
         {onOpen && (
-          <button className="btn" onClick={onOpen}>
+          <button className="btn btnPrimary" onClick={onOpen}>
             {t("openBook")}
           </button>
         )}

@@ -1,4 +1,5 @@
 /* Selector de idioma: una píldora más del libro que abre un menú con los dos idiomas.
+   Vive sobre la barra granate, así que va en estilo secundario invertido: papel sobre granate.
    El menú es propio (no un <select>) porque el de un select nativo lo dibuja el sistema
    y no admite estilos. */
 
@@ -9,10 +10,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  border: 1.5px solid var(--maroon);
+  border: 1.5px solid var(--paper);
   border-radius: 999px;
-  background-color: var(--paper);
-  color: var(--maroon);
+  background-color: transparent;
+  color: var(--paper);
   /* min-width para que la píldora no baile al pasar de "Español" a "English" */
   min-width: 112px;
   padding: 4px 12px;
@@ -20,7 +21,8 @@
   transition: background-color .15s;
 }
 
-.trigger:hover { background-color: var(--rose-soft); }
+/* Ilumina ligeramente la píldora al pasar el ratón */
+.trigger:hover { background-color: rgba(251, 247, 241, .14); }
 
 .chevron { flex: none; }
 

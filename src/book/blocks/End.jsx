@@ -12,7 +12,7 @@ export function End() {
       <Doodle name="sparkle" size={56} />
       <h2>{t("end.title")}</h2>
       <p className="soft">{t("end.p1")}</p>
-      <button className="btn" onClick={() => goTo(-1)}>
+      <button className="btn btnPrimary" onClick={() => goTo(-1)}>
         {t("end.closeBook")}
       </button>
     </section>

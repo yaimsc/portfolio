@@ -37,7 +37,7 @@ export function Hobbies() {
         </li>
       </ul>
       <Divider />
-      <button className="btn" onClick={() => goTo(indexIdx)}>
+      <button className="btn btnPrimary" onClick={() => goTo(indexIdx)}>
         {t("hobbies.goIndex")}
       </button>
     </section>

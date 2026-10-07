@@ -4,7 +4,7 @@
 /* Libro retro, versión suave: poco contraste, colores planos, sin degradados */
 :root {
   --paper: #fbf7f1; --desk: #f2eadf; --ink: #3b2b2b; --soft: #7a6a68; --line: #dccdbe;
-  --maroon: #7b3f3f; --rose: #e2a1a8; --rose-soft: #f3dcda; --butter: #f7e8c3; --sky: #cfe6ea; --sky-deep: #4f8a9a;
+  --maroon: #8c3a4b; --maroon-deep: #702e3c; --rose: #e2a1a8; --rose-soft: #f3dcda; --butter: #f7e8c3; --sky: #cfe6ea; --sky-deep: #4f8a9a;
   --serif: "Libre Baskerville", Baskerville, Georgia, serif;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -28,8 +28,15 @@ p { margin: 0 0 1.1em; }
 /* Utilidades: las usan varios componentes a la vez, por eso siguen siendo globales */
 .mono { font-family: var(--mono); font-size: .78rem; }
 .soft { color: var(--soft); }
-.btn { background: var(--paper); border: 1.5px solid var(--maroon); color: var(--maroon); border-radius: 999px; padding: 8px 18px; font: .8rem var(--mono); text-decoration: none; transition: background .15s, color .15s; }
-.btn:hover { background: var(--maroon); color: var(--paper); }
+/* Botones: la clase base comparte la forma de píldora y el modificador decide el rol.
+   btnPrimary  = CTA principal de una vista: granate relleno con texto en papel.
+   btnSecondary = navegación y acciones de apoyo: contorno granate sobre papel. */
+.btn { display: inline-block; border-radius: 999px; padding: 8px 18px; font: .8rem var(--mono); text-decoration: none; border: 1.5px solid transparent; transition: background .15s, color .15s, border-color .15s; }
+.btnPrimary { background: var(--maroon); border-color: var(--maroon); color: var(--paper); }
+.btnPrimary:not(:disabled):hover { background: var(--maroon-deep); border-color: var(--maroon-deep); }
+.btnSecondary { background: var(--paper); border-color: var(--maroon); color: var(--maroon); }
+.btnSecondary:not(:disabled):hover { background: var(--maroon); border-color: var(--maroon); color: var(--paper); }
+.btn:disabled { opacity: .45; cursor: default; }
 
 /* ===== Móvil: barra de página fija abajo =====
    El libro en móvil es largo (una doble página apilada) y sin giro 3D. Sin esto hay que

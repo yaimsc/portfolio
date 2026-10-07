@@ -1,16 +1,18 @@
 .stage { padding: 48px 0 24px; }
 .wrap { width: min(var(--max), 100% - 40px); margin-inline: auto; }
 
-/* Barra superior */
+/* Barra superior: granate para separarla visualmente del papel del libro */
 .topbar {
   position: sticky; 
   top: 0; 
   z-index: 20; 
-  background: var(--paper); 
-  border-bottom: 1.5px solid var(--line);
+  background: var(--maroon); 
+  border-bottom: 1.5px solid var(--maroon-deep);
 
   .wrap { display: flex; align-items: center; gap: 24px; min-height: 48px; padding-right: 0; flex-wrap: wrap; }
-  .brand { font-family: var(--serif); text-decoration: none; margin-right: auto; }
+  /* La marca es un botón: vuelve al inicio cerrado, por eso sin fondo ni borde */
+  .brand { font-family: var(--serif); text-decoration: none; margin-right: auto; color: var(--paper); background: none; border: 0; padding: 0; cursor: pointer; transition: opacity .15s; }
+  .brand:hover { opacity: .8; }
 }
 
 .footer { padding: 4px 0 40px; font: .75rem var(--mono); color: var(--soft); }

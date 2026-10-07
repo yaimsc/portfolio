@@ -50,6 +50,7 @@ export function BookView({
 
       <div className={s.controls}>
         <button
+          className="btn btnSecondary"
           onClick={() => goToPage(currentPageIndex - 1)}
           disabled={currentPageIndex === -1 || busy}
           aria-label={currentPageIndex === 0 ? t("close") : t("previous")}
@@ -58,7 +59,7 @@ export function BookView({
           {currentPageIndex === 0 ? t("close") : t("previous")}
         </button>
         <button
-          className={currentPageIndex > indexIdx ? undefined : s.hidden}
+          className={`btn btnSecondary ${currentPageIndex > indexIdx ? "" : s.hidden}`}
           onClick={() => goToPage(indexIdx)}
           disabled={busy}
           aria-label={t("backToIndex")}
@@ -67,6 +68,7 @@ export function BookView({
           {t("index.label")}
         </button>
         <button
+          className={`btn btnSecondary ${s.next}`}
           onClick={() => goToPage(currentPageIndex + 1)}
           disabled={currentPageIndex === spreads.length - 1 || busy}
           aria-label={currentPageIndex === -1 ? t("open") : t("next")}

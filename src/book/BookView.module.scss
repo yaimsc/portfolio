@@ -49,21 +49,7 @@
   gap: 12px; 
   margin-top: 22px; 
 }
-.controls button { 
-  background: var(--paper); 
-  border: 1.5px solid var(--maroon); 
-  color: var(--maroon); 
-  border-radius: 999px; 
-  padding: 8px 18px; font: .8rem var(--mono); 
-  transition: background .15s, color .15s; 
-}
-.controls button:not(:disabled):hover { 
-  background: var(--maroon); 
-  color: var(--paper); 
-}
-.controls button:disabled { 
-  opacity: .4; cursor: default; 
-}
+/* Los botones son btnSecondary (global.scss); aquí solo queda la huella del contenedor */
 .controls .hidden { 
   visibility: hidden; 
 }
@@ -91,10 +77,10 @@
     align-items: stretch; 
     gap: 8px; margin: 0; 
     padding: 8px; 
-    background: var(--paper);
-    border: 1.5px solid var(--maroon); 
+    background: var(--maroon);
+    border: 1.5px solid var(--maroon-deep); 
     border-radius: 999px; 
-    box-shadow: 4px 4px 0 #e3cfc7;
+    box-shadow: 4px 4px 0 #e9d9d2;
   }
 
   .controls button { 
@@ -103,5 +89,25 @@
     font-size: .7rem; 
     line-height: 1.25; 
     text-align: center; 
+  }
+
+  /* En la barra granate: "Siguiente" destaca relleno en papel; los otros dos, contorno en papel
+     (el mismo esquema invertido de la píldora de idioma sobre la barra superior). */
+  .controls .next {
+    background: var(--paper);
+    border-color: var(--paper);
+    color: var(--maroon);
+  }
+  .controls .next:not(:disabled):hover {
+    background: var(--rose-soft);
+    border-color: var(--rose-soft);
+  }
+  .controls button:not(.next) {
+    background: transparent;
+    border-color: var(--paper);
+    color: var(--paper);
+  }
+  .controls button:not(.next):not(:disabled):hover {
+    background: rgba(251, 247, 241, .14);
   }
 }
