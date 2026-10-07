@@ -60,8 +60,59 @@
   margin-top: 10px; 
 }
 
+/* Zonas de paso de página en los cantos del libro (solo escritorio): franjas laterales
+   invisibles que al hacer hover muestran un tooltip y al hacer clic pasan de página. */
+@media (min-width: 900px) {
+  .edge {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 56px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    z-index: 6; /* sobre las páginas y la hoja que gira, bajo el marcapáginas */
+  }
+  .edgeLeft { left: 0; }
+  .edgeRight { right: 0; }
+
+  /* Tooltip en estilo píldora, como el resto de la interfaz */
+  .edge::after {
+    content: attr(data-tip);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+    background: var(--paper);
+    border: 1.5px solid var(--maroon);
+    color: var(--maroon);
+    border-radius: 999px;
+    padding: 6px 12px;
+    font: .72rem var(--mono);
+    white-space: nowrap;
+    box-shadow: 4px 4px 0 rgba(227, 207, 199, .8);
+    transition: opacity .15s;
+  }
+  .edgeLeft::after { left: calc(100% + 10px); content: "← " attr(data-tip); }
+  .edgeRight::after { right: calc(100% + 10px); content: attr(data-tip) " →"; }
+
+  .edge:not(:disabled):hover::after,
+  .edge:focus-visible::after { opacity: 1; }
+
+  /* Un tinte rosa en el canto al pasar el ratón avisa de que ahí se pasa página */
+  .edgeLeft:not(:disabled):hover { background: linear-gradient(to right, rgba(226, 161, 168, .18), transparent 75%); }
+  .edgeRight:not(:disabled):hover { background: linear-gradient(to left, rgba(226, 161, 168, .18), transparent 75%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edge::after { transition: none; }
+}
+
 @media (max-width: 899px) {
   .pages { grid-template-columns: 1fr; }
+  /* En móvil las esquinas de los cantos no aplican: manda la barra fija inferior */
+  .edge { display: none; }
 
   /* La doble página se apila y es larga: sin barra fija hay que llegar al final del bloque
      para pasar página. Los botones comparten fila con el de índice. */

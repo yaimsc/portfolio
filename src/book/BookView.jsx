@@ -46,6 +46,27 @@ export function BookView({
         {pageAt(leftPageIndex, "left")}
         {pageAt(rightPageIndex, "right", !flipState)}
         <Leaf flipState={flipState} currentPageIndex={currentPageIndex} spreads={spreads} goToPage={goToPage} />
+        {/* Zonas de paso en los cantos (móvil ocultas, la barra fija manda allí) */}
+        {currentPageIndex > -1 && (
+          <button
+            type="button"
+            className={`${s.edge} ${s.edgeLeft}`}
+            data-tip={currentPageIndex === 0 ? t("close") : t("previous")}
+            onClick={() => goToPage(currentPageIndex - 1)}
+            disabled={busy}
+            aria-label={currentPageIndex === 0 ? t("close") : t("previous")}
+          />
+        )}
+        {currentPageIndex < spreads.length - 1 && (
+          <button
+            type="button"
+            className={`${s.edge} ${s.edgeRight}`}
+            data-tip={currentPageIndex === -1 ? t("open") : t("next")}
+            onClick={() => goToPage(currentPageIndex + 1)}
+            disabled={busy}
+            aria-label={currentPageIndex === -1 ? t("open") : t("next")}
+          />
+        )}
       </div>
 
       <div className={s.controls}>
